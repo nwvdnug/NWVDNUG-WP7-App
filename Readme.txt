@@ -1,0 +1,1 @@
+This is just an application written to learn WP7 development. I created an app to view the meeting information for the user group I founded and run in the Northwest Phoenix Valley (www.nwvdnug.org)
