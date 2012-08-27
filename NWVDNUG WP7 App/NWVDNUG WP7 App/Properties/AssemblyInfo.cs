@@ -9,9 +9,9 @@ using System.Resources;
 [assembly: AssemblyTitle("NWVDNUG_WP7_App")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Neudesic")]
+[assembly: AssemblyCompany("NWVDNUG.org")]
 [assembly: AssemblyProduct("NWVDNUG_WP7_App")]
-[assembly: AssemblyCopyright("Copyright © Neudesic 2012")]
+[assembly: AssemblyCopyright("Copyright © NWVDNUG 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

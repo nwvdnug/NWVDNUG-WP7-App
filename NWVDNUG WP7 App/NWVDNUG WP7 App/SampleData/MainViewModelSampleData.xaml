@@ -4,14 +4,56 @@
     xmlns:local="clr-namespace:NWVDNUG_WP7_App" xmlns:ViewModels="clr-namespace:NWVDNUG_WP7_App.ViewModels">
 
     <ViewModels:AppViewModel.UpcomingMeetings>
-        <ViewModels:MeetingViewModel MeetingId="1" Title="Feb 2012" Details="Maecenas praesent accumsan bibendum" LineThree="Maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur"/>
-        <ViewModels:MeetingViewModel MeetingId="2" Title="Mar 2012" Details="Maecenas praesent accumsan bibendum" LineThree="Maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur"/>
-        <ViewModels:MeetingViewModel MeetingId="3" Title="Apr 2012" Details="Maecenas praesent accumsan bibendum" LineThree="Maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur"/>
+        <ViewModels:MeetingViewModel 
+            MeetingId="1" 
+            Title="Aug 2012"
+            Location = "Foothills Recreation Center, 5600 W Union Hills Ave, Glendale, AZ, 85308"
+            SpeakerName = "Steele Price"
+            SpeakerBioUrl = "http://steeleprice.net/"
+            StartDateTime = "8/28/2012 6:00:00 PM"
+        />
+        <ViewModels:MeetingViewModel 
+            MeetingId="1" 
+            Title="Sep 2012"
+            Location = "Foothills Recreation Center, 5600 W Union Hills Ave, Glendale, AZ, 85308"
+            SpeakerName = "Brendon Birdoes"
+            SpeakerBioUrl = "http://twitter.com/brendonbirdoes"
+            StartDateTime = "9/25/2012 6:00:00 PM"
+        />
+        <ViewModels:MeetingViewModel 
+            MeetingId="1" 
+            Title="Oct 2012"
+            Location = "Foothills Recreation Center, 5600 W Union Hills Ave, Glendale, AZ, 85308"
+            SpeakerName = "TBA"
+            SpeakerBioUrl = "http://nwvdnug.org/"
+            StartDateTime = "10/23/2012 6:00:00 PM"
+        />
     </ViewModels:AppViewModel.UpcomingMeetings>
     <ViewModels:AppViewModel.PastMeetings>
-        <ViewModels:MeetingViewModel MeetingId="1" Title="Feb 2012" Details="Maecenas praesent accumsan bibendum" LineThree="Maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur"/>
-        <ViewModels:MeetingViewModel MeetingId="2" Title="Mar 2012" Details="Maecenas praesent accumsan bibendum" LineThree="Maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur"/>
-        <ViewModels:MeetingViewModel MeetingId="3" Title="Apr 2012" Details="Maecenas praesent accumsan bibendum" LineThree="Maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur"/>
+        <ViewModels:MeetingViewModel 
+            MeetingId="1" 
+            Title="Aug 2012"
+            Location = "Foothills Recreation Center, 5600 W Union Hills Ave, Glendale, AZ, 85308"
+            SpeakerName = "Steele Price"
+            SpeakerBioUrl = "http://steeleprice.net/"
+            StartDateTime = "8/28/2012 6:00:00 PM"
+        />
+        <ViewModels:MeetingViewModel 
+            MeetingId="1" 
+            Title="Sep 2012"
+            Location = "Foothills Recreation Center, 5600 W Union Hills Ave, Glendale, AZ, 85308"
+            SpeakerName = "Brendon Birdoes"
+            SpeakerBioUrl = "http://twitter.com/brendonbirdoes"
+            StartDateTime = "9/25/2012 6:00:00 PM"
+        />
+        <ViewModels:MeetingViewModel 
+            MeetingId="1" 
+            Title="Oct 2012"
+            Location = "Foothills Recreation Center, 5600 W Union Hills Ave, Glendale, AZ, 85308"
+            SpeakerName = "TBA"
+            SpeakerBioUrl = "http://nwvdnug.org/"
+            StartDateTime = "10/23/2012 6:00:00 PM"
+        />
     </ViewModels:AppViewModel.PastMeetings>
     
 </ViewModels:AppViewModel>
