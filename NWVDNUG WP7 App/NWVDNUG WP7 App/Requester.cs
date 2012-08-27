@@ -64,6 +64,16 @@ namespace NWVDNUG_WP7_App
                                                                                                      Location = "Please press and hold the 'Upcoming' header to try again."
                                                                                                  }));
             }
+            catch (Exception e)
+            {
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                                                          App.ViewModel.UpcomingMeetings.Add(new MeetingViewModel
+                                                          {
+                                                              Title = "Unknown error connecting to server.",
+                                                              SpeakerName = e.Message,
+                                                              Location = "Please press and hold the 'Upcoming' header to try again."
+                                                          }));
+            }
             finally
             {
                 Deployment.Current.Dispatcher.BeginInvoke(() => (((PhoneApplicationFrame)App.Current.RootVisual).Content as MainPage).HideProgressIndicator());
@@ -95,6 +105,16 @@ namespace NWVDNUG_WP7_App
                                                           App.ViewModel.PastMeetings.Add(new MeetingViewModel
                                                                                              {
                                                                                                  Title = "Error connecting to server.",
+                                                                                                 SpeakerName = e.Message,
+                                                                                                 Location = "Please press and hold the 'Upcoming' header to try again."
+                                                                                             }));
+            }
+            catch (Exception e)
+            {
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                                                          App.ViewModel.PastMeetings.Add(new MeetingViewModel
+                                                                                             {
+                                                                                                 Title = "Unknown error connecting to server.",
                                                                                                  SpeakerName = e.Message,
                                                                                                  Location = "Please press and hold the 'Upcoming' header to try again."
                                                                                              }));
