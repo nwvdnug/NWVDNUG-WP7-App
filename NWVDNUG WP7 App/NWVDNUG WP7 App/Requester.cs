@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Windows;
+using Microsoft.Phone.Controls;
 using NWVDNUG_WP7_App.ViewModels;
 
 namespace NWVDNUG_WP7_App
@@ -63,24 +64,29 @@ namespace NWVDNUG_WP7_App
                                                                                                      Location = "Please press and hold the 'Upcoming' header to try again."
                                                                                                  }));
             }
+            finally
+            {
+                Deployment.Current.Dispatcher.BeginInvoke(() => (((PhoneApplicationFrame)App.Current.RootVisual).Content as MainPage).HideProgressIndicator());
+            }
         }
 
         public void PastMeetingJsonGetRequestStreamCallback(IAsyncResult asynchronousResult)
-        {    
+        {
             try
             {
-                WebResponse response = ((HttpWebRequest)asynchronousResult.AsyncState).EndGetResponse(asynchronousResult);    
-        
-                using (var reader = new StreamReader(response.GetResponseStream()))    
-                {        
-                    string responseString = reader.ReadToEnd();        
-                    reader.Close();        
+                WebResponse response = ((HttpWebRequest)asynchronousResult.AsyncState).EndGetResponse(asynchronousResult);
+
+                using (var reader = new StreamReader(response.GetResponseStream()))
+                {
+                    string responseString = reader.ReadToEnd();
+                    reader.Close();
 
                     //deserialize using datacontract serializer (not shown)    
-                    var json = (JsonArray) SimpleJson.DeserializeObject(responseString);
+                    var json = (JsonArray)SimpleJson.DeserializeObject(responseString);
 
                     json.ForEach(mtg =>
                                  Deployment.Current.Dispatcher.BeginInvoke(() => App.ViewModel.PastMeetings.Add(ParseJsonObject(mtg))));
+
                 }
             }
             catch (WebException e)
@@ -92,6 +98,10 @@ namespace NWVDNUG_WP7_App
                                                                                                  SpeakerName = e.Message,
                                                                                                  Location = "Please press and hold the 'Upcoming' header to try again."
                                                                                              }));
+            }
+            finally
+            {
+                Deployment.Current.Dispatcher.BeginInvoke(() => (((PhoneApplicationFrame)App.Current.RootVisual).Content as MainPage).HideProgressIndicator());
             }
         }
 

@@ -12,6 +12,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using TombstoneHelper;
+using GestureEventArgs = System.Windows.Input.GestureEventArgs;
+
+//using GestureEventArgs = Microsoft.Phone.Controls.GestureEventArgs;
 
 namespace NWVDNUG_WP7_App
 {
@@ -27,11 +30,18 @@ namespace NWVDNUG_WP7_App
             this.Loaded += new RoutedEventHandler(MainPage_Loaded);
         }
 
+        public void HideProgressIndicator()
+        {
+            performanceProgressBar.Visibility=Visibility.Collapsed;
+        }
+
         // Load data for the ViewModel Items
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             if (!App.ViewModel.IsDataLoaded)
             {
+                performanceProgressBar.Visibility=Visibility.Visible;
+                
                 App.ViewModel.LoadData();
             }
         }
@@ -48,6 +58,8 @@ namespace NWVDNUG_WP7_App
 
         private void PanoramaItem_Hold(object sender, GestureEventArgs e)
         {
+            performanceProgressBar.Visibility = Visibility.Visible;
+
             App.ViewModel.LoadData();
         }
     }

@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800" 
     d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
@@ -17,8 +18,10 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <!--Panorama control-->
-        <controls:Panorama Title="nwvdnug meetings">
+        <StackPanel Orientation="Vertical">
+            <toolkit:PerformanceProgressBar x:Name="performanceProgressBar" IsIndeterminate="True" Height="30" Visibility="Collapsed"/>
+            <!--Panorama control-->
+            <controls:Panorama Title="nwvdnug meetings">
 
             <controls:Panorama.Background>
                 <ImageBrush ImageSource="PanoramaBackground.png"/>
@@ -59,5 +62,6 @@
                 </ListBox>
             </controls:PanoramaItem>
         </controls:Panorama>
+        </StackPanel>
     </Grid>
 </phone:PhoneApplicationPage>
