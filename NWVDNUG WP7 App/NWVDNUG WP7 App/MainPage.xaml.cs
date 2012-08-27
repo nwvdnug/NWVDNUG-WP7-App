@@ -12,7 +12,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using TombstoneHelper;
-using GestureEventArgs = Microsoft.Phone.Controls.GestureEventArgs;
 
 namespace NWVDNUG_WP7_App
 {
@@ -33,9 +32,6 @@ namespace NWVDNUG_WP7_App
         {
             if (!App.ViewModel.IsDataLoaded)
             {
-                //SystemTray.IsVisible = true;
-                //SystemTray.ProgressIndicator.IsVisible = true;
-                performanceProgressBar.Visibility = Visibility.Visible;
                 App.ViewModel.LoadData();
             }
         }
