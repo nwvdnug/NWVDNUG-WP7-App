@@ -10,6 +10,8 @@ namespace NWVDNUG_WP7_App
 {
     public class Requester
     {
+        private const string _errorRefreshMessage = "Please use the refresh icon to try reloading the data.";
+
         public void LoadUpcoming()
         {
             const string restUrl = "http://nwvdnug.org/api/upcomingmeetings/";
@@ -61,7 +63,7 @@ namespace NWVDNUG_WP7_App
                                                                                                  {
                                                                                                      Title = "Error connecting to server.",
                                                                                                      SpeakerName = e.Message,
-                                                                                                     Location = "Please press and hold the 'Upcoming' header to try again."
+                                                                                                     Location = _errorRefreshMessage
                                                                                                  }));
             }
             catch (Exception e)
@@ -71,7 +73,7 @@ namespace NWVDNUG_WP7_App
                                                           {
                                                               Title = "Unknown error connecting to server.",
                                                               SpeakerName = e.Message,
-                                                              Location = "Please press and hold the 'Upcoming' header to try again."
+                                                              Location = _errorRefreshMessage
                                                           }));
             }
             finally
@@ -106,7 +108,7 @@ namespace NWVDNUG_WP7_App
                                                                                              {
                                                                                                  Title = "Error connecting to server.",
                                                                                                  SpeakerName = e.Message,
-                                                                                                 Location = "Please press and hold the 'Upcoming' header to try again."
+                                                                                                 Location = _errorRefreshMessage
                                                                                              }));
             }
             catch (Exception e)
@@ -116,7 +118,7 @@ namespace NWVDNUG_WP7_App
                                                                                              {
                                                                                                  Title = "Unknown error connecting to server.",
                                                                                                  SpeakerName = e.Message,
-                                                                                                 Location = "Please press and hold the 'Upcoming' header to try again."
+                                                                                                 Location = _errorRefreshMessage
                                                                                              }));
             }
             finally

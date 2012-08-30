@@ -11,6 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Tasks;
 using TombstoneHelper;
 using GestureEventArgs = System.Windows.Input.GestureEventArgs;
 
@@ -56,11 +57,19 @@ namespace NWVDNUG_WP7_App
             this.RestoreState();
         }
 
-        private void PanoramaItem_Hold(object sender, GestureEventArgs e)
+        private void refreshButton_Click(object sender, EventArgs e)
         {
             performanceProgressBar.Visibility = Visibility.Visible;
 
             App.ViewModel.LoadData();
+        }
+
+        private void emailButton_Click(object sender, EventArgs e)
+        {
+            var sendemail = new EmailComposeTask();
+            sendemail.Subject = "NWVDNUG Meeting Information WP7 Application Support";
+            sendemail.To = "mikescott8@nwvdnug.org";
+            sendemail.Show();
         }
     }
 }
