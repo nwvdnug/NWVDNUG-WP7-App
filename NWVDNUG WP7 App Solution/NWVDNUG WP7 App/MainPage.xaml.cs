@@ -66,10 +66,7 @@ namespace NWVDNUG_WP7_App
 
         private void emailButton_Click(object sender, EventArgs e)
         {
-            var sendemail = new EmailComposeTask();
-            sendemail.Subject = "NWVDNUG Meeting Information WP7 Application Support";
-            sendemail.To = "mikescott8@nwvdnug.org";
-            sendemail.Show();
+            NavigationService.Navigate(new Uri("/About.xaml", UriKind.RelativeOrAbsolute)); 
         }
     }
 }
