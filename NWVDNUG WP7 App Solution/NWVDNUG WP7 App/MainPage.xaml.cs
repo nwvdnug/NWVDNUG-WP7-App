@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
+using NWVDNUG_WP7_App.ViewModels;
 using TombstoneHelper;
 using GestureEventArgs = System.Windows.Input.GestureEventArgs;
 
@@ -67,6 +68,12 @@ namespace NWVDNUG_WP7_App
         private void emailButton_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/About.xaml", UriKind.RelativeOrAbsolute)); 
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item =  (MeetingViewModel)e.AddedItems[0];
+            NavigationService.Navigate(new Uri(string.Format("/MeetingDetails.xaml?MeetingId={0}", item.MeetingId), UriKind.RelativeOrAbsolute));
         }
     }
 }
