@@ -20,16 +20,27 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <StackPanel Orientation="Vertical">
             <toolkit:PerformanceProgressBar x:Name="performanceProgressBar" IsIndeterminate="True" Height="30" Visibility="Collapsed"/>
-            <!--Panorama control-->
             <controls:Panorama Title="nwvdnug meetings">
-
                 <controls:Panorama.Background>
                     <ImageBrush ImageSource="PanoramaBackground.png"/>
                 </controls:Panorama.Background>
- 
-                <!--Panorama item one-->
+
+                <!--<controls:PanoramaItem Header="next meeting" DataContext="{Binding NextMeeting}">
+                    <ScrollViewer>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Title:</TextBlock>
+                            <TextBlock Style="{StaticResource PhoneTextSubtleStyle}" Text="{Binding Title}" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Style="{StaticResource PhoneTextLargeStyle}"><LineBreak/>Start Time:</TextBlock>
+                            <TextBlock Style="{StaticResource PhoneTextSubtleStyle}" Text="{Binding StartDateTime}" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Style="{StaticResource PhoneTextLargeStyle}"><LineBreak/>End Time:</TextBlock>
+                            <TextBlock Style="{StaticResource PhoneTextSubtleStyle}" Text="{Binding EndDateTime}" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Style="{StaticResource PhoneTextLargeStyle}"><LineBreak/>Location:</TextBlock>
+                            <TextBlock Style="{StaticResource PhoneTextSubtleStyle}" Text="{Binding Location}" TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </ScrollViewer>
+                </controls:PanoramaItem>-->
+                
                 <controls:PanoramaItem Header="upcoming">
-                    <!--Double line list with text wrapping-->
                     <ListBox Margin="0,0,-12,0" ItemsSource="{Binding UpcomingMeetings}" SelectionChanged="ListBox_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
@@ -44,11 +55,8 @@
                     </ListBox>
                 </controls:PanoramaItem>
  
-                <!--Panorama item two-->
-                <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
                 <controls:PanoramaItem Header="previous">
-                    <!--Double line list with image placeholder and text wrapping-->
-                    <ListBox Margin="0,0,-12,0" ItemsSource="{Binding PastMeetings}">
+                    <ListBox Margin="0,0,-12,0" ItemsSource="{Binding PastMeetings}" SelectionChanged="ListBox_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="0,0,0,17">

@@ -34,7 +34,6 @@ namespace NWVDNUG_WP7_App.ViewModels
         /// </summary>
         public ObservableCollection<MeetingViewModel> PastMeetings { get; private set; }
 
-
         public bool IsDataLoaded { get; private set; }
 
         /// <summary>
