@@ -126,6 +126,9 @@ namespace NWVDNUG_WP7_App
                 // An unhandled exception has occurred; break into the debugger
                 System.Diagnostics.Debugger.Break();
             }
+
+           //is handled by this method.    
+            e.Handled = true; 
         }
 
         #region Phone application initialization
