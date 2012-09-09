@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using Microsoft.Phone.Controls;
 using Microsoft.Phone.Net.NetworkInformation;
 
 
@@ -51,7 +52,25 @@ namespace NWVDNUG_WP7_App.ViewModels
                 req.LoadPast();
 
                 this.IsDataLoaded = true;
-            } 
+            }
+            else
+            {
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                                                          App.ViewModel.UpcomingMeetings.Add(new MeetingViewModel
+                                                                                             {
+                                                                                                 Title = "No Network detected.",
+                                                                                                 SpeakerName = "",
+                                                                                                 Location = "Please connect to WiFi or data connection"
+                                                                                             }));
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                                                          App.ViewModel.PastMeetings.Add(new MeetingViewModel
+                                                                                             {
+                                                                                                 Title = "No Network detected.",
+                                                                                                 SpeakerName = "",
+                                                                                                 Location = "Please connect to WiFi or data connection"
+                                                                                             }));
+                Deployment.Current.Dispatcher.BeginInvoke(() => (((PhoneApplicationFrame)App.Current.RootVisual).Content as MainPage).HideProgressIndicator());
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

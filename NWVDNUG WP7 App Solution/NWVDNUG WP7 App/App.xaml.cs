@@ -127,7 +127,6 @@ namespace NWVDNUG_WP7_App
                 System.Diagnostics.Debugger.Break();
             }
 
-           //is handled by this method.    
             e.Handled = true; 
         }
 
