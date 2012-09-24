@@ -56,7 +56,7 @@ namespace NWVDNUG_WP7_App
                 if (foundMeeting != null)
                 {
                     DataContext = foundMeeting;
-                    LocationMap.ZoomBarVisibility = Visibility.Visible;
+                    //LocationMap.ZoomBarVisibility = Visibility.Visible;
                     LocationMap.Center = new GeoCoordinate(Convert.ToDouble(33.65467), Convert.ToDouble(-112.17849));
                     LocationMap.ZoomLevel = 11.00;
 
