@@ -20,7 +20,7 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <StackPanel Orientation="Vertical">
             <toolkit:PerformanceProgressBar x:Name="performanceProgressBar" IsIndeterminate="True" Height="30" Visibility="Collapsed"/>
-            <controls:Panorama Title="nwvdnug meetings" Foreground="White">
+            <controls:Panorama Title="nwvdnug meetings" Foreground="White" Height="700" Width="480">
                 <controls:Panorama.Background>
                     <ImageBrush ImageSource="PanoramaBackground.png"/>
                 </controls:Panorama.Background>
@@ -40,30 +40,30 @@
                     </ScrollViewer>
                 </controls:PanoramaItem>-->
 
-                <controls:PanoramaItem Header="upcoming" Foreground="White">
-                    <ListBox Margin="0,0,-12,0" Foreground="White" ItemsSource="{Binding UpcomingMeetings}" SelectionChanged="ListBox_SelectionChanged">
+                <controls:PanoramaItem Margin="0,-36,0,0" Header="upcoming" Foreground="White">
+                    <ListBox Margin="0,-12,0,0" Foreground="White" ItemsSource="{Binding UpcomingMeetings}" SelectionChanged="ListBox_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Margin="0,0,0,17">
+                                <StackPanel Margin="0,0,0,12">
                                     <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="White"/>
-                                    <TextBlock Text="{Binding SpeakerName}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextLargeStyle}" Foreground="White"/>
-                                    <TextBlock Text="{Binding Location}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#FF999999"/>
-                                    <TextBlock Text="{Binding StartDateTime}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"  Foreground="#FF999999"/>
+                                    <TextBlock Text="{Binding SpeakerName}" TextWrapping="Wrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextLargeStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Location}" TextWrapping="Wrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#FF999999"/>
+                                    <TextBlock Text="{Binding StartDateTime}" TextWrapping="Wrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextSubtleStyle}"  Foreground="#FF999999"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </controls:PanoramaItem>
- 
-                <controls:PanoramaItem Header="previous">
-                    <ListBox Margin="0,0,-12,0" ItemsSource="{Binding PastMeetings}" SelectionChanged="ListBox_SelectionChanged">
+
+                <controls:PanoramaItem Margin="0,-36,0,0" Header="previous" Foreground="White">
+                    <ListBox Margin="0,-12,0,0" Foreground="White" ItemsSource="{Binding PastMeetings}" SelectionChanged="ListBox_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Margin="0,0,0,17">
+                                <StackPanel Margin="0,0,0,12">
                                     <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="White"/>
-                                    <TextBlock Text="{Binding SpeakerName}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextLargeStyle}" Foreground="White"/>
-                                    <TextBlock Text="{Binding Location}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#FF999999"/>
-                                    <TextBlock Text="{Binding StartDateTime}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#FF999999"/>
+                                    <TextBlock Text="{Binding SpeakerName}" TextWrapping="Wrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextLargeStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Location}" TextWrapping="Wrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#FF999999"/>
+                                    <TextBlock Text="{Binding StartDateTime}" TextWrapping="Wrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="#FF999999"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
