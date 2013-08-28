@@ -19,64 +19,70 @@ using TombstoneHelper;
 
 namespace NWVDNUG_WP7_App
 {
-    public partial class MeetingDetails : PhoneApplicationPage
-    {
-        public MeetingDetails()
-        {
-            InitializeComponent();
-        }
+	public partial class MeetingDetails : PhoneApplicationPage
+	{
+		public MeetingDetails()
+		{
+			InitializeComponent();
+		}
 
-        // BING MAPS KEY
-        // Ami-b_D_xJEWRkz_gYAo4RFTL2Q29OY8lZ9s1EeCnD2YWM15uSp-ETbXUh1mrYdR
-        // reference: http://www.braincastexception.com/wp7-web-services-first-part-geocodeservice/
+		// BING MAPS KEY
+		// Ami-b_D_xJEWRkz_gYAo4RFTL2Q29OY8lZ9s1EeCnD2YWM15uSp-ETbXUh1mrYdR
+		// reference: http://www.braincastexception.com/wp7-web-services-first-part-geocodeservice/
 
-        //private void MeetingDetails_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    //if (!App.ViewModel.IsDataLoaded)
-        //    //{
-        //    //    App.ViewModel.LoadData();
-        //    //}
-        //}
+		//private void MeetingDetails_Loaded(object sender, RoutedEventArgs e)
+		//{
+		//    //if (!App.ViewModel.IsDataLoaded)
+		//    //{
+		//    //    App.ViewModel.LoadData();
+		//    //}
+		//}
 
-        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
-        {
-            this.SaveState(e);
-        }
+		protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+		{
+			this.SaveState(e);
+		}
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            this.RestoreState();
-            string meetingIdToLoad = "0";
+		protected override void OnNavigatedTo(NavigationEventArgs e)
+		{
+			this.RestoreState();
+			string meetingIdToLoad = "0";
 
-            if (NavigationContext.QueryString.TryGetValue("MeetingId", out meetingIdToLoad))
-            {
-                var foundMeeting = App.ViewModel.UpcomingMeetings.FirstOrDefault(m => m.MeetingId == int.Parse(meetingIdToLoad)) ??
-                                   App.ViewModel.PastMeetings.FirstOrDefault(m => m.MeetingId == int.Parse(meetingIdToLoad));
+			if (NavigationContext.QueryString.TryGetValue("MeetingId", out meetingIdToLoad))
+			{
+				var foundMeeting = App.ViewModel.UpcomingMeetings.FirstOrDefault(m => m.MeetingId == int.Parse(meetingIdToLoad)) ??
+								   App.ViewModel.PastMeetings.FirstOrDefault(m => m.MeetingId == int.Parse(meetingIdToLoad));
 
-                if (foundMeeting != null)
-                {
-                    DataContext = foundMeeting;
-                    //LocationMap.ZoomBarVisibility = Visibility.Visible;
-                    LocationMap.Center = new GeoCoordinate(Convert.ToDouble(33.65467), Convert.ToDouble(-112.17849));
-                    LocationMap.ZoomLevel = 11.00;
+				if (foundMeeting != null)
+				{
+					DataContext = foundMeeting;
+					//LocationMap.ZoomBarVisibility = Visibility.Visible;
+					LocationMap.Center = new GeoCoordinate(Convert.ToDouble(33.65467), Convert.ToDouble(-112.17849));
+					LocationMap.ZoomLevel = 11.00;
 
-                    var pin1 = new Pushpin
-                                   {
-                                       Location = LocationMap.Center,
-                                       Content= "Foothills Rec Center",
-                                   };
-                    LocationMap.Children.Add(pin1);
-                }
-            }
+					var pin1 = new Pushpin
+								   {
+									   Location = LocationMap.Center,
+									   Content= "Foothills Rec Center",
+								   };
+					LocationMap.Children.Add(pin1);
+				}
+			}
 
-        }
+		}
 
-        private void GetDirections_Click(object sender, RoutedEventArgs e)
-        {
-            var task = new BingMapsDirectionsTask();
-            task.End = new LabeledMapLocation {Label = ((MeetingViewModel) DataContext).Location};
-            task.Show();
-        }
+		private void GetDirections_Click(object sender, RoutedEventArgs e)
+		{
+			var task = new BingMapsDirectionsTask();
+			task.End = new LabeledMapLocation {Label = ((MeetingViewModel) DataContext).Location};
+			task.Show();
+		}
 
-    }
+		private void RSVP_Click(object sender, RoutedEventArgs e)
+		{
+			var wbt = new WebBrowserTask {Uri = new Uri("http://nwvdnugmonthly.eventday.com")};
+			wbt.Show();
+		}
+
+	}
 }
